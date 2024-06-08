@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://typinsane.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://typinsane.github.io/"/>
+  <updated>2024-06-08T03:24:06.083Z</updated>
+  <id>https://typinsane.github.io/</id>
+  
+  <author>
+    <name>NoteFun的Exception</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello hexo</title>
+    <link href="https://typinsane.github.io/2024/06/08/hello-hexo/"/>
+    <id>https://typinsane.github.io/2024/06/08/hello-hexo/</id>
+    <published>2024-06-08T03:24:06.000Z</published>
+    <updated>2024-06-08T03:24:06.083Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
