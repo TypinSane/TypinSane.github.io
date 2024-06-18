@@ -10,7 +10,7 @@
 </head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">NotFun的Exception's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">【Java虚拟机】一：内存管理</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="toc-text">一、内存区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%A7%81%E6%9C%89%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="toc-text">线程私有内存区域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="toc-text">线程共享内存区域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">对象创建的流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%EF%BC%88%E5%BE%85%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-text">对象的内存结构（待补充）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="toc-text">对象的访问定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA"><span class="toc-text">二、参数设置与内存溢出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-text">三、垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB%EF%BC%9F"><span class="toc-text">对象是否存活？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%94%B6%E4%B9%8B%E5%89%8D"><span class="toc-text">回收之前</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%9B%9E%E6%94%B6"><span class="toc-text">方法区回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86"><span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">垃圾收集算法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-text">并发可达性分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APPENDIX"><span class="toc-text">APPENDIX</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%A5%E6%9F%84"><span class="toc-text">句柄</span></a></li></ol></li></ol></li></ol></div><div class="column is-9"><header class="my-4"></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">【Java虚拟机】一：内存管理</h1><time class="has-text-grey" datetime="2024-06-14T09:20:01.000Z">2024-06-14</time><article class="mt-2 post-content"><p>​	记录一下学习《深入理解Java虚拟机（第三版）》的笔记，主要重点在于记录，也许会有一些感想。</p>
 <p>[toc]</p>
 <h3 id="一、内存区域"><a href="#一、内存区域" class="headerlink" title="一、内存区域"></a>一、内存区域</h3><p>Java程序启动时，会获得一块操作系统分配的内存区域（todo:还有本地内存），然后会把拿到的内存区域再根据功能来进行划分。</p>
-<h4 id="线程私有内存区域"><a href="#线程私有内存区域" class="headerlink" title="线程私有内存区域"></a>线程私有内存区域</h4><img src="【Java虚拟机】一:内存管理.assets/image-20240616160213870.png" alt="image-20240616160213870" style="zoom:50%;" />
+<h4 id="线程私有内存区域"><a href="#线程私有内存区域" class="headerlink" title="线程私有内存区域"></a>线程私有内存区域</h4><img src="https://nfes-pic-repo.oss-cn-chengdu.aliyuncs.com/undefined202406181634467.png" alt="image-20240616160213870" style="zoom:50%;" />
 
 <p><strong>程序计数器：</strong> 在一个确定的时刻，一个CPU的执行周期中，都只会执行一个线程中的指令，为了某个线程恢复执行时可以从之前的执行位置接着执行，所以需要每个线程都有一个独立的计数器。记录的是当前执行的虚拟机字节码指令的地址。</p>
 <p><strong>虚拟机栈：</strong> 代码实际执行的一个“流程”。当前执行到哪个方法了，这个方法中有什么信息；这个方法又调用了另一个方法newMethod（新的栈帧入栈），newMethod执行完成了（出栈）。</p>
@@ -33,7 +33,7 @@
 
 
 
-<h4 id="对象创建的流程"><a href="#对象创建的流程" class="headerlink" title="对象创建的流程"></a>对象创建的流程</h4><img src="【Java虚拟机】一:内存管理.assets/image-20240615160705868.png" alt="image-20240615160705868" style="zoom:80%;" />
+<h4 id="对象创建的流程"><a href="#对象创建的流程" class="headerlink" title="对象创建的流程"></a>对象创建的流程</h4><img src="https://nfes-pic-repo.oss-cn-chengdu.aliyuncs.com/undefined202406181634621.png" alt="image-20240615160705868" style="zoom:80%;" />
 
 <p>当执行类创建流程时，多个线程同时进行内存空间的分配，并且都会操作堆空间的内存数据，可能会遇到并发的问题。为解决并发的冲突，JVM采取两种策略：</p>
 <ol>
@@ -59,7 +59,7 @@
 </li>
 <li><p>方法区和运行时常量池溢出：</p>
 <p>运行时常量池放在方法区中。（在JDK7以前可以通过String的intern()方法，来添加字符串到常量池中来验证方法区内存溢出；但是JDK7开始，将字符串常量池移到堆中）</p>
-<img src="【Java虚拟机】一:内存管理.assets/image-20240616223212662.png" alt="image-20240616223212662" style="zoom:50%;" />
+<img src="https://nfes-pic-repo.oss-cn-chengdu.aliyuncs.com/undefined202406181634658.png" alt="image-20240616223212662" style="zoom:50%;" />
 
 <p>这个问题，在JDK6中，会打印两个false。因为对象出存在堆中，而str.intern()会把首次遇到的字符串实例复制到方法区中并返回。</p>
 <p>JDK7之后，结果是true和false。因为JDK7之后执行intern()方法不会再复制实例到常量池中了，因为字符串常量池本身就在堆中，只需要在常量池中记录首次出现的实例引用即可。所以str1.intern()会返回的引用和str1相同，故返回true；而str2在创建“java”字符串之前，就已经在加载官方库的时候将这个字符串的一个引用放进了常量池了，所以在str2.intern()方法执行的时候不满足“首次遇到”的条件，不会intern()返回的就会是之前的字符串实例的引用地址，此引用就和str2并不相同了，此处就会返回false。</p>
@@ -121,9 +121,9 @@
 <h5 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h5><p>​	如果使用句柄来间接定位对象，会在堆中划分一块空间作为句柄池。</p>
 <p>​	句柄就是把对象的类型信息与对象实例的引用放在一个句柄对象中。</p>
 <p>​	通过句柄可以间接获取对象实例，但是会多一次访问，性能没有直接通过指针访问高。但是在内存进行整理的时候，对象在内存中的地址发生变动时，只需要修改句柄中的引用地址，而不需要改变栈中的引用地址信息。</p>
-<img src="【Java虚拟机】一:内存管理.assets/image-20240615163316480.png" alt="image-20240615163316480" style="zoom:50%;" />
+<img src="https://nfes-pic-repo.oss-cn-chengdu.aliyuncs.com/undefined202406181634579.png" alt="image-20240615163316480" style="zoom:50%;" />
 
-<img src="【Java虚拟机】一:内存管理.assets/image-20240615163327795.png" alt="image-20240615163327795" style="zoom:50%;" />
+<img src="https://nfes-pic-repo.oss-cn-chengdu.aliyuncs.com/undefined202406181634376.png" alt="image-20240615163327795" style="zoom:50%;" />
 
 
 
