@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo</title><meta name="author" content="NotFunDexception"><meta name="copyright" content="NotFunDexception"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://typinsane.github.io/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://typinsane.github.io/img/butterfly-icon.png">
+<meta property="article:author" content="NotFunDexception">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://typinsane.github.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hexo",
+  "url": "https://typinsane.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://typinsane.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;967f0fdf7bf049ba8f96e8edc8e7e8cd&quot;}"></script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/09/07/%E7%BA%BF%E6%80%A7%E7%AD%89%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6%E6%84%8F%E4%B9%89/" title="Lecture 1.线性等式的几何学意义">Lecture 1.线性等式的几何学意义</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-09-07T14:34:30.000Z" title="Created 2025-09-07 22:34:30">2025-09-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2025/09/07/%E7%BA%BF%E6%80%A7%E7%AD%89%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6%E6%84%8F%E4%B9%89/#post-comment"><span class="valine-comment-count" data-xid="/2025/09/07/%E7%BA%BF%E6%80%A7%E7%AD%89%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6%E6%84%8F%E4%B9%89/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> comments</span></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/05/gRPC%E5%85%A5%E9%97%A8%E4%B9%8B%E5%89%8D/" title="gRPC入门之前">gRPC入门之前</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-05T09:07:21.000Z" title="Created 2024-07-05 17:07:21">2024-07-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/07/05/gRPC%E5%85%A5%E9%97%A8%E4%B9%8B%E5%89%8D/#post-comment"><span class="valine-comment-count" data-xid="/2024/07/05/gRPC%E5%85%A5%E9%97%A8%E4%B9%8B%E5%89%8D/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> comments</span></span></div><div class="content">​	看了官方的教程，想说尝试一下gRPC，没想到就连一个最简单的通讯录Demo都花了我很多的时间。在此简单地记录一下。 ​	刚转到使用VS code，超级轻量的使用体验无疑是非常加分的，因为本身是一个没有太多的语言偏向的IDE。用它来开发Java相比JetBrains 的Idea 确实没有那么的智能，不过很多东西动手去操作一遍，会有不一样的理解。因为IDEA实在太无脑了，之前很多的配置其实都是囫囵吞枣，并没有弄的很清晰，难免让自己看了尴尬，让人看了笑话。 ​	首先是对ProtocolBuf的demo。按照教程，下载了proto 的编译器，能够正常按照模板文件生成代码（对于.proto文件的内容，还是以官方文档为准，比起网上一大堆文章，讲得清楚多了）。Message类生成好了，简单看了一下下一步的测试demo，不过是写了两个测试类，一个用来把用户输入的参数写入一个文件中，再通过另一个文件读取出来。当我直接通过VS code打开这个demo文件夹时，尴尬就发生了，突然发现自己连怎么把当前这个普通的项目转为用Maven管理依赖都不知道，以前总是按部就班的从头创建一个maven项目。 ​...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/18/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%BA%8C-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" title="【Java虚拟机】二:垃圾收集器">【Java虚拟机】二:垃圾收集器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-18T08:01:14.000Z" title="Created 2024-06-18 16:01:14">2024-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/06/18/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%BA%8C-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/#post-comment"><span class="valine-comment-count" data-xid="/2024/06/18/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%BA%8C-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> comments</span></span></div><div class="content"># 垃圾收集器  **Serial收集器（一般面向客户端）：**最早期的，单线程的，简单的，执行清除工作时需要停止业务线程。优点，简单高效，额外开销小，在硬件受限的环境中应用多（客户端模式下的HotSpot还在应用）(新生代标记复制，老年代标记整理) **ParNew收集器：**Serial收集器的多线程并发版本。 Parallel Scavenge收集器：新生代，标记复制，并行收集。和ParNew类似，关注的核心点是吞吐量**（运行用户代码时间&#x2F;（运行用户代码时间+垃圾收集时间）） -XX:MaxGCPauseMillis 大于0，GC时间（会影响GC的吞吐量和新生代的空间，印象GC的频率） -XX:GCTimeRatio 垃圾收集时间占总时间的比例。 **Parallel Old收集器：**标记整理， CMS收集器：关注的核心是最短回收停顿时间** 。提高响应速度。缺点是对CPU资源敏感、造成内存碎片、无法处理浮动垃圾（GC过程中用户线程产生的垃圾）。 ​	1）初始标记（initial mark）：STW , 标记GCRoots能够关联的对象，速度快。 ​	2）并发...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/14/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%B8%80%EF%80%A2%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="【Java虚拟机】一：内存管理">【Java虚拟机】一：内存管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-14T09:20:01.000Z" title="Created 2024-06-14 17:20:01">2024-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/06/14/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%B8%80%EF%80%A2%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/#post-comment"><span class="valine-comment-count" data-xid="/2024/06/14/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%B8%80%EF%80%A2%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> comments</span></span></div><div class="content">​	记录一下学习《深入理解Java虚拟机（第三版）》的笔记，主要重点在于记录，也许会有一些感想。 [toc] 一、内存区域Java程序启动时，会获得一块操作系统分配的内存区域（todo:还有本地内存），然后会把拿到的内存区域再根据功能来进行划分。   线程私有内存区域程序计数器： 在一个确定的时刻，一个CPU的执行周期中，都只会执行一个线程中的指令，为了某个线程恢复执行时可以从之前的执行位置接着执行，所以需要每个线程都有一个独立的计数器。记录的是当前执行的虚拟机字节码指令的地址。 虚拟机栈： 代码实际执行的一个“流程”。当前执行到哪个方法了，这个方法中有什么信息；这个方法又调用了另一个方法newMethod（新的栈帧入栈），newMethod执行完成了（出栈）。 当虚拟机栈调用的深度超过了虚拟机允许的最大深度，则会抛出StackOverflowError； 当开辟新的虚拟机栈空间失败的时候，会抛出OutOfMemoryError； **局部变量表：**书中说到——“局部变量表存放了编译期可知的各种Java虚拟机基本数据类型（boolean、byte、char、short、int、...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/13/Kubernates%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%B8%80%E4%B8%AADemo/" title="Kubernates学习与一个Demo">Kubernates学习与一个Demo</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-13T08:25:38.000Z" title="Created 2024-06-13 16:25:38">2024-06-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/06/13/Kubernates%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%B8%80%E4%B8%AADemo/#post-comment"><span class="valine-comment-count" data-xid="/2024/06/13/Kubernates%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%B8%80%E4%B8%AADemo/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> comments</span></span></div><div class="content">​	 一、什么是Kubernates​	K8S是一个用来管理编排应用程序容器的系统。 网络管理——服务发现、负载均衡​	通过域名解析（DNS）或者IP地址来暴露内部管理的容器。并切负责各个容器、节点的负载均衡，使应用稳定运行。 存储管理——存储编排​	允许挂载本地及云存储 生命周期管理——自我修复​	自动检查、重启、替换异常运行的容器。 扩展管理——水平扩缩二、组件 Node组件  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/08/%E3%80%90%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80%E3%80%91%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/" title="【操作指南一】快速发布博客脚本">【操作指南一】快速发布博客脚本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-06-08T10:33:35.000Z" title="Created 2024-06-08 18:33:35">2024-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/06/08/%E3%80%90%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80%E3%80%91%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/#post-comment"><span class="valine-comment-count" data-xid="/2024/06/08/%E3%80%90%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%E4%B8%80%E3%80%91%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E8%84%9A%E6%9C%AC/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> comments</span></span></div><div class="content">​	第一篇博客，就用来记录如何通过hexo快速发布一篇博文并且推送到github仓库中吧。 一、常规的方法 step1:  cd &#x2F;basic_path&#x2F;blog&#x2F;  hexo new “article title”  通过typora或者其他的md编辑器，编辑、保存博文。  step2:  hexo server  启动本地服务，预览 localhost:4000  step3:  hexo clean &amp;&amp; deploy    </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">NotFunDexception</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/07/%E7%BA%BF%E6%80%A7%E7%AD%89%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%AD%A6%E6%84%8F%E4%B9%89/" title="Lecture 1.线性等式的几何学意义">Lecture 1.线性等式的几何学意义</a><time datetime="2025-09-07T14:34:30.000Z" title="Created 2025-09-07 22:34:30">2025-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/05/gRPC%E5%85%A5%E9%97%A8%E4%B9%8B%E5%89%8D/" title="gRPC入门之前">gRPC入门之前</a><time datetime="2024-07-05T09:07:21.000Z" title="Created 2024-07-05 17:07:21">2024-07-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/18/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%BA%8C-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" title="【Java虚拟机】二:垃圾收集器">【Java虚拟机】二:垃圾收集器</a><time datetime="2024-06-18T08:01:14.000Z" title="Created 2024-06-18 16:01:14">2024-06-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/14/%E3%80%90Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E4%B8%80%EF%80%A2%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="【Java虚拟机】一：内存管理">【Java虚拟机】一：内存管理</a><time datetime="2024-06-14T09:20:01.000Z" title="Created 2024-06-14 17:20:01">2024-06-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/13/Kubernates%E5%AD%A6%E4%B9%A0%E4%B8%8E%E4%B8%80%E4%B8%AADemo/" title="Kubernates学习与一个Demo">Kubernates学习与一个Demo</a><time datetime="2024-06-13T08:25:38.000Z" title="Created 2024-06-13 16:25:38">2024-06-13</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/Linear-Algebra/" style="font-size: 1.1em; color: #999">Linear Algebra</a> <a href="/tags/blog/" style="font-size: 1.1em; color: #999">blog</a> <a href="/tags/script/" style="font-size: 1.1em; color: #999">script</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              September 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/07/">
+            <span class="card-archive-list-date">
+              July 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/06/">
+            <span class="card-archive-list-date">
+              June 2024
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">6</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-08T13:28:41.464Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By NotFunDexception</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: 'ohAdSyCo3qD5tvMfNwGbhEJS-gzGzoHsz',
+        appKey: 'O2zfwVFfBGTTU4XuI0XYtj5L',
+        serverURLs: ''
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
